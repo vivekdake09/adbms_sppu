@@ -46,17 +46,17 @@ db.employees.find({ _id: 1 })
 db.employees.updateOne({ name: "John Doe" }, { $inc: { salary: 5000 } })
 db.employees.find()
 
-# Set a new field 'experience' for John Doe
+#Set a new field 'experience' for John Doe
 
 db.employees.updateOne({ name: "John Doe" }, { $set: { experience: "5 years" } })
 
-(iii) Upserts (Update or Insert if not exists)
+#(iii) Upserts (Update or Insert if not exists)
 # Upsert example: If no document with _id: 4 exists, insert it
 
 db.employees.updateOne({ _id: 4 }, { $set: { name: "New Employee", age: 40, position: "Consultant", salary: 80000 } }, { upsert: true })
 db.employees.find()
 
-(iv) Updating Multiple Documents
+#(iv) Updating Multiple Documents
 # Increase the salary of all employees with the position "Software Engineer" by 10000
 
 db.employees.updateMany({ position: "Software Engineer" }, { $inc: { salary: 10000 } })
