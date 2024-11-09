@@ -1,1 +1,27 @@
+Create a Database and Collection:
 
+use flight_management_system
+db.createCollection("flights")
+
+Batch Insert Documents:
+
+db.flights.insertMany([
+  { flight_id: "AI101", airline: "Air India", source: "Pune", destination: "Delhi", seats_available: 100, price: 5000 },
+  { flight_id: "6E202", airline: "Indigo", source: "Mumbai", destination: "Chennai", seats_available: 150, price: 4000 },
+  { flight_id: "SG303", airline: "SpiceJet", source: "Bangalore", destination: "Hyderabad", seats_available: 120, price: 3500 }
+])
+
+$where Query Example:
+
+db.flights.find({ $where: "this.seats_available > 120" })
+
+Cursor Operations:
+Limit:
+
+db.flights.find().limit(2)
+
+Skip:
+
+db.flights.find().skip(1).limit(2)
+
+db.flights.find().sort({ price: -1 })
