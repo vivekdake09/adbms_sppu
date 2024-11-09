@@ -63,54 +63,59 @@ db.flights.find()
 
 # a) Find all flights from Delhi
 db.flights.find({ source: "Delhi" })
-# View data after query
+
 db.flights.find()
 
 # Find one flight from Air India
 db.flights.findOne({ airline: "Air India" })
-# View data after query
+
 db.flights.find()
 
 # b) Query criteria (Query conditionals, OR queries, $not, Conditional semantics)
 
 # Find flights with fare less than 5000
 db.flights.find({ fare: { $lt: 5000 } })
-# View data after query
+
+
 db.flights.find()
 
 # Find flights that are either delayed or cancelled
 db.flights.find({ status: { $in: ["Delayed", "Cancelled"] } })
-# View data after query
+
 db.flights.find()
 
 # Find flights that are not from Pune
 db.flights.find({ source: { $ne: "Pune" } })
-# View data after query
+
 db.flights.find()
 
 # Find flights that are not on time using $not
 db.flights.find({ status: { $not: { $eq: "On Time" } } })
-# View data after query
+
+
 db.flights.find()
 
 # Type-specific queries (Null, Regular expression, Querying arrays)
 
 # Find flights with no amenities (empty array)
 db.flights.find({ amenities: { $size: 0 } })
-# View data after query
+
+
 db.flights.find()
 
 # Find flights with WiFi in amenities
 db.flights.find({ amenities: { $in: ["WiFi"] } })
-# View data after query
+
+
 db.flights.find()
 
 # Find flights where flight number starts with "AI" (using regex)
 db.flights.find({ flightNumber: { $regex: /^AI/ } })
-# View data after query
+
+
 db.flights.find()
 
 # Find flights that stop at least once
 db.flights.find({ stops: { $gte: 1 } })
-# View data after query
+
 db.flights.find()
